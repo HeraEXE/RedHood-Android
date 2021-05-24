@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">RedHood</string>
+    <!-- Appbar titles. -->
+    <string name="reg_appbar_title">Registration</string>
+    <string name="reset_appbar_title">Password Recovery</string>
+    <string name="login_appbar_title">Log In</string>
+    <string name="verification_appbar_title">Email Verification</string>
+    <string name="edit_profile_title">Edit Profile</string>
+    <!-- Validation errors. -->
+    <string name="empty_form">form is empty</string>
+    <string name="invalid_email">email is invalid</string>
+    <string name="busy_email">email is already in use</string>
+    <string name="weak_password">at least 6 chars</string>
+    <string name="pswrd_not_match">passwords don\'t match</string>
+    <!-- Errors. -->
+    <string name="got_wrong">something got wrong</string>
+    <string name="login_wrong_data">wrong email or password</string>
+    <string name="email_not_verified">please verify your email</string>
+    <!-- Text Views. -->
+    <string name="email_tv">Email:</string>
+    <string name="username_tv">Username:</string>
+    <string name="password_tv">Password:</string>
+    <string name="confirm_password_tv">Confirm Password:</string>
+    <string name="verification_title">
+        We were sent verification letter to your email account.
+        Please check your email, verify it and continue.
+    </string>
+    <string name="edit_image_tv">Edit Profile Image:</string>
+    <string name="reset_password_tv">Forgot password?</string>
+    <string name="register_new_account_tv">Register new account!</string>
+    <string name="reset_password_title">
+        After you enter an email of your account we will send to your email
+        password reset letter.
+        Please check your email and create new password.
+    </string>
+    <string name="edit_username_tv">Edit Username:</string>
+    <!-- Hints. -->
+    <string name="email_hint">Enter email</string>
+    <string name="username_hint">Enter username</string>
+    <string name="password_hint">Enter password</string>
+    <string name="confirm_password_hint">Repeat password</string>
+    <string name="edit_username_hint">Enter new name</string>
+    <!-- Buttons. -->
+    <string name="submit_button">submit</string>
+    <string name="con_button">continue</string>
+    <string name="ok_button">OK</string>
+    <string name="apply_button">apply</string>
+    <!-- Logout Dialog. -->
+    <string name="logout_message">Confirm your leaving!</string>
+    <string name="logout_yes">Log Out</string>
+    <string name="logout_no">Cancel</string>
+    <!-- Edit User Dialog. -->
+    <string name="edit_user_message">Apply changes?</string>
+    <string name="edit_user_yes">Yes</string>
+    <string name="edit_user_no">No</string>
+    <string name="edit_user_toast">changes applied</string>
+    <!-- Bottom menu. -->
+    <string name="hoods_menu">Hoods</string>
+    <string name="subscriptions_hoods_menu">Subscriptions</string>
+    <string name="user_hoods_menu">Your Hoods</string>
+    <!-- Drawer menu. -->
+    <string name="edit_profile_menu">Edit Profile</string>
+    <string name="create_hoods_menu">Create Hood</string>
+    <string name="saved_hoods_menu">Saved Hoods</string>
+    <string name="logout_menu">Log Out</string>
+</resources>

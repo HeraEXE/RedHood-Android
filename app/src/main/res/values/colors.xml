@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main Colors. -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark_grey">#FF202020</color>
+    <!-- Red Colors. -->
+    <color name="red_0">#FF641220</color>
+    <color name="red_1">#FF6E1423</color>
+    <color name="red_2">#FF85182A</color>
+    <color name="red_3">#FFA11D33</color>
+    <color name="red_4">#FFA71E34</color>
+    <color name="red_5">#FFB21E35</color>
+    <color name="red_6">#FFBD1F36</color>
+    <color name="red_7">#FFC71F37</color>
+    <color name="red_8">#FFDA1E37</color>
+    <color name="red_9">#FFE01E37</color>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "197837599436",
+    "project_id": "redhood-33ea3",
+    "storage_bucket": "redhood-33ea3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197837599436:android:30fd775c2d9e40ea29c869",
+        "android_client_info": {
+          "package_name": "com.hera.redhood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197837599436-b0t4ntolfhjdlp4t3f9nk0e6kbfc7k1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK9kCjO2pPakSwe_spMH7r-vsHAvnCS1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197837599436-b0t4ntolfhjdlp4t3f9nk0e6kbfc7k1m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

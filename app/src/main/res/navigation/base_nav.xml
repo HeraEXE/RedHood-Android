@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/base_nav"
+    app:startDestination="@id/hoodsFragment">
+
+    <fragment
+        android:id="@+id/hoodsFragment"
+        android:name="com.hera.redhood.ui.base.HoodsFragment"
+        android:label="fragment_hoods"
+        tools:layout="@layout/fragment_hoods" />
+    <fragment
+        android:id="@+id/createHoodsFragment"
+        android:name="com.hera.redhood.ui.base.CreateHoodsFragment"
+        android:label="fragment_create_hoods"
+        tools:layout="@layout/fragment_create_hoods" />
+    <fragment
+        android:id="@+id/savedHoodsFragment"
+        android:name="com.hera.redhood.ui.base.SavedHoodsFragment"
+        android:label="fragment_saved_hoods"
+        tools:layout="@layout/fragment_saved_hoods" />
+    <fragment
+        android:id="@+id/userHoodsFragment"
+        android:name="com.hera.redhood.ui.base.UserHoodsFragment"
+        android:label="fragment_user_hoods"
+        tools:layout="@layout/fragment_user_hoods" />
+    <fragment
+        android:id="@+id/editProfile"
+        android:name="com.hera.redhood.ui.base.EditProfile"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/subscriptionsHoodsFragment"
+        android:name="com.hera.redhood.ui.base.SubscriptionsHoodsFragment"
+        android:label="fragment_subscriptions_hoods"
+        tools:layout="@layout/fragment_subscriptions_hoods" />
+</navigation>
