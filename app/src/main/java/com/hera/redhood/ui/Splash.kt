@@ -36,10 +36,8 @@ class Splash : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         // useless stuff.
-        Handler().postDelayed({
             startApp()
             finish()
-        }, 2000)
     }
 
     /**

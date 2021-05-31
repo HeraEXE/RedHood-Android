@@ -1,11 +1,14 @@
 package com.hera.redhood.ui.authentication
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.VerifiedInputEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -45,9 +48,12 @@ class LogIn : Fragment() {
 
         // Setting on submit button click.
         binding.loginSubmitButton.setOnClickListener {
+            hideKeyboard()
             val email = binding.loginEmailEt.text.toString()
             val password = binding.loginPasswordEt.text.toString()
             if (validateForm(email, password)) {
+                binding.loginSubmitButton.visibility = View.INVISIBLE
+                binding.loginProgressBar.visibility = View.VISIBLE
                 signInUserWithEmailAndPassword(email, password)
             }
         }
@@ -62,15 +68,7 @@ class LogIn : Fragment() {
             binding.root.findNavController().navigate(R.id.action_logIn_to_registration)
         }
 
-
         return binding.root
-    }
-
-    /**
-     * On Resume.
-     */
-    override fun onResume() {
-        super.onResume()
     }
 
     /**
@@ -125,11 +123,26 @@ class LogIn : Fragment() {
                         startActivity(Intent(activity, Base::class.java))
                         activity?.finish()
                     } else {
+                        binding.loginSubmitButton.visibility = View.VISIBLE
+                        binding.loginProgressBar.visibility = View.GONE
                         Toast.makeText(context, getText(R.string.email_not_verified), Toast.LENGTH_SHORT).show()
                     }
                 } else {
+                    binding.loginSubmitButton.visibility = View.VISIBLE
+                    binding.loginProgressBar.visibility = View.GONE
                     Toast.makeText(context, getText(R.string.login_wrong_data), Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    /**
+     * Hide Keyboard.
+     */
+    private fun hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }

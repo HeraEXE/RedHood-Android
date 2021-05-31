@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.hera.redhood.R
+import com.hera.redhood.data.FirebaseKey.HOOD_KEY
 import com.hera.redhood.data.FirebaseKey.USER_KEY
 
 /**
@@ -19,7 +20,7 @@ import com.hera.redhood.data.FirebaseKey.USER_KEY
  */
 class Authentication : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
-    lateinit var database: FirebaseDatabase
+    private lateinit var database: FirebaseDatabase
     lateinit var dbUserRef: DatabaseReference
     /**
      * On Create.
@@ -30,7 +31,7 @@ class Authentication : AppCompatActivity() {
         // Setting auth.
         auth = Firebase.auth
 
-        // Setting database and user reference.
+        // Setting database and references.
         database = Firebase.database
         dbUserRef = database.getReference(USER_KEY)
 

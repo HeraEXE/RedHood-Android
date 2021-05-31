@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RedHood">
-        <activity android:name=".ui.base.Base"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.authentication.Authentication"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.Splash"
+        <activity
+            android:name=".ui.base.Base"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.authentication.Authentication"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

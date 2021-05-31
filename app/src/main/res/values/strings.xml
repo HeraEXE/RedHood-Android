@@ -6,6 +6,11 @@
     <string name="login_appbar_title">Log In</string>
     <string name="verification_appbar_title">Email Verification</string>
     <string name="edit_profile_title">Edit Profile</string>
+    <string name="create_hood_title">Create Hood</string>
+    <string name="hoods_title">Hoods</string>
+    <string name="saved_hoods_title">Saved Hoods</string>
+    <string name="subscription_hood_title">Subscriptions</string>
+    <string name="user_hood_title">Your Hoods</string>
     <!-- Validation errors. -->
     <string name="empty_form">form is empty</string>
     <string name="invalid_email">email is invalid</string>
@@ -54,6 +59,16 @@
     <string name="edit_user_yes">Yes</string>
     <string name="edit_user_no">No</string>
     <string name="edit_user_toast">changes applied</string>
+    <!-- Create Hood Dialog. -->
+    <string name="create_hood_message">Create Hood?</string>
+    <string name="create_hood_yes">Create</string>
+    <string name="create_hood_no">Cancel</string>
+    <string name="create_hood_toast">hood was created</string>
+    <!-- Edit Hood Dialog. -->
+    <string name="edit_hood_message">Edit Hood?</string>
+    <string name="edit_hood_yes">Edit</string>
+    <string name="edit_hood_no">Cancel</string>
+    <string name="edit_hood_toast">hood was edited</string>
     <!-- Bottom menu. -->
     <string name="hoods_menu">Hoods</string>
     <string name="subscriptions_hoods_menu">Subscriptions</string>
@@ -61,6 +76,19 @@
     <!-- Drawer menu. -->
     <string name="edit_profile_menu">Edit Profile</string>
     <string name="create_hoods_menu">Create Hood</string>
-    <string name="saved_hoods_menu">Saved Hoods</string>
+    <string name="liked_hoods_menu">Liked Hoods</string>
     <string name="logout_menu">Log Out</string>
+    <!-- Chooser strings. -->
+    <string name="chooser_title">Choose App.</string>
+    <string name="title_activity_drawer_base">DrawerBase</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,20 +1,22 @@
 package com.hera.redhood.ui.authentication
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.DatabaseRegistrar
 import com.hera.redhood.R
 import com.hera.redhood.data.models.User
 import com.hera.redhood.databinding.FragmentRegistrationBinding
+import com.hera.redhood.utils.BundleKeys.START
 import kotlin.random.Random
 
 /**
@@ -24,7 +26,7 @@ import kotlin.random.Random
 class Registration : Fragment() {
     // firebase auth.
     private lateinit var auth: FirebaseAuth
-    // firebase dbUserRef.
+    // firebase references.
     private lateinit var dbUserRef: DatabaseReference
 
     // binding.
@@ -40,7 +42,7 @@ class Registration : Fragment() {
         // Setting auth.
         auth = (activity as Authentication).auth
 
-        // Setting dbUserRef.
+        // Setting references.
         dbUserRef = (activity as Authentication).dbUserRef
 
         // Setting binding.
@@ -51,6 +53,7 @@ class Registration : Fragment() {
 
         // Setting on submit button click.
         binding.regSubmitButton.setOnClickListener {
+            hideKeyboard()
             // get email and password from forms.
             val email = binding.regEmailEt.text.toString()
             val username = binding.regUsernameEt.text.toString()
@@ -58,6 +61,8 @@ class Registration : Fragment() {
             val confirmPassword = binding.regConfirmPasswordEt.text.toString()
             // validate.
             if (validateForm(email, username, password, confirmPassword)) {
+                binding.regSubmitButton.visibility = View.INVISIBLE
+                binding.regProgressBar.visibility = View.VISIBLE
                 // create new user.
                 createNewUser(email, username, password)
             }
@@ -126,10 +131,10 @@ class Registration : Fragment() {
         when {
             confirmPassword != password -> {
                 isValid = false
-                binding.regPasswordEt.error = getText(R.string.pswrd_not_match)
+                binding.regConfirmPasswordEt.error = getText(R.string.pswrd_not_match)
             }
             else -> {
-                binding.regPasswordEt.error = null
+                binding.regConfirmPasswordEt.error = null
             }
         }
         return isValid
@@ -149,6 +154,8 @@ class Registration : Fragment() {
                     // send verification letter to user email.
                     sendEmailVerification(user)
                 } else {
+                    binding.regSubmitButton.visibility = View.VISIBLE
+                    binding.regProgressBar.visibility = View.GONE
                     Toast.makeText(context, getText(R.string.got_wrong), Toast.LENGTH_SHORT).show()
                 }
             }
@@ -163,6 +170,8 @@ class Registration : Fragment() {
                 if (task.isSuccessful) {
                     binding.root.findNavController().navigate(R.id.action_registration_to_emailVerification)
                 } else {
+                    binding.regSubmitButton.visibility = View.VISIBLE
+                    binding.regProgressBar.visibility = View.GONE
                     Toast.makeText(context, getText(R.string.got_wrong), Toast.LENGTH_SHORT).show()
                 }
             }
@@ -178,8 +187,19 @@ class Registration : Fragment() {
                 "https://cdn.discordapp.com/attachments/712342039030923329/845835860767145994/redhood_face3.png",
                 "https://cdn.discordapp.com/attachments/712342039030923329/845835877119819786/redhood_face4.png"
         )
-        val randomProfileImgUrl = profileImages[Random.nextInt(profileImages.size)]
-        val user = User(email, username, randomProfileImgUrl)
+        val profileImgUrl = profileImages[Random.nextInt(profileImages.size)]
+        val user = User(uid, email, username, profileImgUrl, 0, 0, mutableListOf(START), mutableListOf(START))
         dbUserRef.child(uid).setValue(user)
+    }
+
+    /**
+     * Hide Keyboard.
+     */
+    private fun hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }

@@ -1,11 +1,13 @@
 package com.hera.redhood.ui.base
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -24,10 +26,10 @@ class EditProfile : Fragment() {
     private var _binding: FragmentEditProfileBinding? = null
     private val binding get() = _binding!!
     // firebase auth.
-    private lateinit var user: FirebaseUser
+    private lateinit var currentUser: FirebaseUser
     // firebase database.
     private lateinit var dbUserRef: DatabaseReference
-    private lateinit var currentUser: User
+    private lateinit var user: User
     //
     private var updatedImgUri: String? = null
 
@@ -43,34 +45,43 @@ class EditProfile : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getText(R.string.edit_profile_title)
 
         // Setting user.
-        user = (activity as Base).user
+        currentUser = (activity as Base).currentUser
 
         // Setting dbUserRef and currentUser.
         dbUserRef = (activity as Base).dbUserRef
-        currentUser = (activity as Base).currentUser
+        user = (activity as Base).user
 
         // Setting ui with current user data.
         Glide.with(binding.root)
-                .load(currentUser.profileImgUrl)
+                .load(user.profileImgUrl)
                 .into(binding.editProfileImg)
-        binding.editProfileUsernameEt.setText(currentUser.username)
+        binding.editProfileUsernameEt.setText(user.username)
 
         // Setting image profile.
-        binding.editProfileImg.setOnClickListener {
+        binding.editProfileImgBtn.setOnClickListener {
             val intent = Intent().also {
                 it.type = "image/*"
                 it.action = Intent.ACTION_GET_CONTENT
             }
-            startActivityForResult(Intent.createChooser(intent, "Choose App"), PICK_IMAGE)
+            startActivityForResult(Intent.createChooser(intent, getText(R.string.chooser_title)), PICK_IMAGE)
         }
 
         // Setting on apply button click.
         binding.editProfileApplyBtn.setOnClickListener {
-            val email = currentUser.email
+            hideKeyboard()
+            val idKey = user.idKey
+            val email = user.email
             val username = binding.editProfileUsernameEt.text.toString()
-            val profileImgUrl = updatedImgUri ?: currentUser.profileImgUrl
+            val profileImgUrl = updatedImgUri ?: user.profileImgUrl
+            val subscribers = user.subscribers
+            val totalLikes = user.totalLikes
+            val subscriptions = user.subscriptions
+            val likedHoods = user.likedHoods
             if (validateUsername(username)) {
-                editUser(User(email, username, profileImgUrl))
+                binding.editProfileApplyBtn.visibility = View.INVISIBLE
+                binding.editProfileProgressBar.visibility = View.VISIBLE
+                val updatedUser = User(idKey, email, username, profileImgUrl, subscribers, totalLikes, subscriptions, likedHoods)
+                confirmUserEdition(updatedUser)
             }
         }
 
@@ -118,23 +129,45 @@ class EditProfile : Fragment() {
     }
 
     /**
-     * Edit User.
+     * Confirm User Edition.
      */
-    private fun editUser(updatedUser: User) {
+    private fun confirmUserEdition(updatedUser: User) {
         AlertDialog.Builder(requireContext())
                 .setMessage(R.string.edit_user_message)
                 .setCancelable(false)
                 .setPositiveButton(R.string.edit_user_yes) { dialog, which ->
                     dialog.dismiss()
-                    dbUserRef.child(user.uid).setValue(updatedUser)
-                    (activity as Base).setDrawerHeader()
+                    editUser(updatedUser)
                     Toast.makeText(activity, getText(R.string.edit_user_toast), Toast.LENGTH_SHORT).show()
+                    binding.editProfileApplyBtn.visibility = View.VISIBLE
+                    binding.editProfileProgressBar.visibility = View.GONE
                 }
                 .setNegativeButton(R.string.edit_user_no) { dialog, which ->
                     dialog.dismiss()
+                    binding.editProfileApplyBtn.visibility = View.VISIBLE
+                    binding.editProfileProgressBar.visibility = View.GONE
                 }
                 .create()
                 .show()
+    }
+
+    /**
+     * Edit User.
+     */
+    private fun editUser(updatedUser: User) {
+        dbUserRef.child(currentUser.uid).setValue(updatedUser)
+        (activity as Base).setDrawerHeader()
+    }
+
+    /**
+     * Hide Keyboard.
+     */
+    private fun hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     companion object {

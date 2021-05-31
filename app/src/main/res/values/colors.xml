@@ -3,7 +3,11 @@
     <!-- Main Colors. -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_blue">#FFEDF6F9</color>
+    <color name="transparent_white">#9FFFFFFF</color>
     <color name="dark_grey">#FF202020</color>
+    <color name="light_grey">#FF343A40</color>
+    <color name="transparent_dark_grey">#5F202020</color>
     <!-- Red Colors. -->
     <color name="red_0">#FF641220</color>
     <color name="red_1">#FF6E1423</color>
@@ -15,4 +19,15 @@
     <color name="red_7">#FFC71F37</color>
     <color name="red_8">#FFDA1E37</color>
     <color name="red_9">#FFE01E37</color>
+    <!-- Orange Colors. -->
+    <color name="orange_0">#FFFF4800</color>
+    <color name="orange_1">#FFFF5400</color>
+    <color name="orange_2">#FFFF6000</color>
+    <color name="orange_3">#FFFF6D00</color>
+    <color name="orange_4">#FFFF7900</color>
+    <color name="orange_5">#FFFF8500</color>
+    <color name="orange_6">#FFFF9100</color>
+    <color name="orange_7">#FFFF9E00</color>
+    <color name="orange_8">#FFFFAA00</color>
+    <color name="orange_9">#FFFFB600</color>
 </resources>

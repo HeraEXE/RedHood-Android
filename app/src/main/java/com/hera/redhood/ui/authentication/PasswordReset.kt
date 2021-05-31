@@ -1,10 +1,12 @@
 package com.hera.redhood.ui.authentication
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -33,16 +35,17 @@ class PasswordReset : Fragment() {
         // Setting auth.
         auth = (activity as Authentication).auth
 
-        // Setting view.
+        // Setting views.
         _view = inflater.inflate(R.layout.fragment_password_reset, container, false)
+        emailForm = _view.findViewById(R.id.pswrd_res_et)
+        okButton = _view.findViewById(R.id.pswrd_res_ok_button)
 
         // Setting action bar title.
         (activity as AppCompatActivity).supportActionBar?.title = getText(R.string.reset_appbar_title)
 
         // Setting on ok button click.
-        emailForm = _view.findViewById(R.id.pswrd_res_et)
-        okButton = _view.findViewById(R.id.pswrd_res_ok_button)
         okButton.setOnClickListener {
+            hideKeyboard()
             val email = emailForm.text.toString()
             if (validateForm(email)) {
                 sendPasswordResetEmail(email)
@@ -78,5 +81,16 @@ class PasswordReset : Fragment() {
                     Toast.makeText(context, getText(R.string.got_wrong), Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    /**
+     * Hide Keyboard.
+     */
+    private fun hideKeyboard() {
+        val view = activity?.currentFocus
+        if (view != null) {
+            val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }

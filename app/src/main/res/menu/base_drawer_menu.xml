@@ -3,19 +3,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/editProfile"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/outline_manage_accounts_24"
             android:title="@string/edit_profile_menu" />
         <item
             android:id="@+id/createHoodsFragment"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/outline_note_add_24"
             android:title="@string/create_hoods_menu" />
         <item
-            android:id="@+id/userHoodsFragment"
-            android:icon="@drawable/ic_launcher_background"
-            android:title="@string/user_hoods_menu" />
-        <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/outline_logout_24"
             android:title="@string/logout_menu" />
     </group>
 </menu>

@@ -16,11 +16,6 @@
         android:label="fragment_create_hoods"
         tools:layout="@layout/fragment_create_hoods" />
     <fragment
-        android:id="@+id/savedHoodsFragment"
-        android:name="com.hera.redhood.ui.base.SavedHoodsFragment"
-        android:label="fragment_saved_hoods"
-        tools:layout="@layout/fragment_saved_hoods" />
-    <fragment
         android:id="@+id/userHoodsFragment"
         android:name="com.hera.redhood.ui.base.UserHoodsFragment"
         android:label="fragment_user_hoods"
@@ -31,8 +26,61 @@
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
-        android:id="@+id/subscriptionsHoodsFragment"
-        android:name="com.hera.redhood.ui.base.SubscriptionsHoodsFragment"
-        android:label="fragment_subscriptions_hoods"
-        tools:layout="@layout/fragment_subscriptions_hoods" />
+        android:id="@+id/hoodFragment"
+        android:name="com.hera.redhood.ui.base.HoodFragment"
+        android:label="fragment_hood"
+        tools:layout="@layout/fragment_hood" />
+    <action
+        android:id="@+id/action_global_hoodFragment"
+        app:destination="@id/hoodFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+    <fragment
+        android:id="@+id/editHood"
+        android:name="com.hera.redhood.ui.base.EditHood"
+        android:label="fragment_edit_hood"
+        tools:layout="@layout/fragment_edit_hood" />
+    <action
+        android:id="@+id/action_global_editHood"
+        app:destination="@id/editHood"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+    <fragment
+        android:id="@+id/userSheet"
+        android:name="com.hera.redhood.ui.base.UserSheet"
+        android:label="fragment_user_sheet"
+        tools:layout="@layout/fragment_user_sheet" />
+    <action
+        android:id="@+id/action_global_userSheet"
+        app:destination="@id/userSheet"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
+    <fragment
+        android:id="@+id/likedHoodsFragment"
+        android:name="com.hera.redhood.ui.base.LikedHoodsFragment"
+        android:label="fragment_liked_hoods"
+        tools:layout="@layout/fragment_liked_hoods" />
+    <fragment
+        android:id="@+id/subscriptions"
+        android:name="com.hera.redhood.ui.base.Subscriptions"
+        android:label="fragment_subscriptions"
+        tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/profileSheet"
+        android:name="com.hera.redhood.ui.base.ProfileSheet"
+        android:label="fragment_profile_sheet"
+        tools:layout="@layout/fragment_profile_sheet" />
+    <action
+        android:id="@+id/action_global_profileSheet"
+        app:destination="@id/profileSheet"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out" />
 </navigation>

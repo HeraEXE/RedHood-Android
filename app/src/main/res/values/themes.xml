@@ -17,4 +17,19 @@
         <item name="android:background">@color/red_7</item>
         <item name="titleTextColor">@color/white</item>
     </style>
+
+    <style name="Theme.RedHood.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="background">@drawable/gradient_redorange</item>
+    </style>
+
+
+
+    <style name="Theme.RedHood.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.RedHood.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
