@@ -13,19 +13,29 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
+    <!--Action Bar Style. -->
     <style name="ActionBarStyle" parent="Widget.MaterialComponents.Toolbar">
-        <item name="android:background">@color/red_7</item>
+        <item name="android:background">@drawable/gradient_redorange</item>
         <item name="titleTextColor">@color/white</item>
     </style>
 
+    <!--No Action Bar Style. -->
     <style name="Theme.RedHood.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ButtonStyle">
-        <item name="background">@drawable/gradient_redorange</item>
+    <!-- Text View Style. -->
+    <style name="TextViewStyle" parent="@style/Widget.AppCompat.TextView">
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:textSize">18sp</item>
     </style>
+
+    <!-- Edit Text Style. -->
+    <style name="EditTextStyle" parent="@style/Widget.AppCompat.EditText">
+        <item name="fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
 
 
 

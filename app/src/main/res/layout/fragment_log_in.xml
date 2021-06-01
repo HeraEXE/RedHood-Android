@@ -21,6 +21,7 @@
 
             <TextView
                 android:id="@+id/login_email_tv"
+                style="@style/TextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -31,6 +32,7 @@
 
             <EditText
                 android:id="@+id/login_email_et"
+                style="@style/EditTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -44,6 +46,7 @@
 
             <TextView
                 android:id="@+id/login_password_tv"
+                style="@style/TextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -54,6 +57,7 @@
 
             <EditText
                 android:id="@+id/login_password_et"
+                style="@style/EditTextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -78,6 +82,7 @@
 
             <TextView
                 android:id="@+id/login_pswrd_reset_tv"
+                style="@style/TextViewStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -90,6 +95,7 @@
 
             <TextView
                 android:id="@+id/login_reg_tv"
+                style="@style/TextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
